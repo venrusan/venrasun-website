@@ -15,12 +15,12 @@ const Footer = () => {
       { name: "Projects", href: "#projects" },
     ],
     services: [
-      { name: "Web Applications", href: "#services" },
-      { name: "Mobile Applications", href: "#services" },
-      { name: "Data Analytics", href: "#services" },
-      { name: "Machine Learning", href: "#services" },
-      { name: "Cloud & IoT", href: "#services" },
-      { name: "Cybersecurity", href: "#services" },
+      { name: "Web Applications", href: "web-application" },
+      { name: "Mobile Applications", href: "mobile-application" },
+      { name: "Data Analytics", href: "data-analytics" },
+      { name: "Machine Learning", href: "machine-learning" },
+      { name: "Cloud & IoT", href: "cloud-iot" },
+      { name: "Cybersecurity", href: "cybersecurity" },
     ],
   };
 
@@ -75,14 +75,14 @@ const Footer = () => {
             <h4 className="font-bold text-foreground mb-4">Services</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors bg-none border-none cursor-pointer p-0"
-                  >
-                    {link.name}
+
+<li key={link.name}>
+                <a href={`/services/${link.href}`}>
+                <button className="text-muted-foreground hover:text-primary transition-colors bg-none border-none cursor-pointer p-0">
+                  {link.name}
                   </button>
-                </li>
+              </a>
+              </li>
               ))}
             </ul>
           </div>
