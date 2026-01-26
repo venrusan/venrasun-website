@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import aboutImage from "@/assets/about-team.png";
+import emailjs from "@emailjs/browser";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -15,9 +17,18 @@ type FormData = z.infer<typeof contactSchema>;
 
 const About = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormData>({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    // Initialize EmailJS
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -45,14 +56,39 @@ const About = () => {
       return;
     }
 
-    // TODO: Integrate EmailJS here
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you soon.",
-    });
-    
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
+      if (!serviceId || !templateId) {
+        throw new Error("EmailJS configuration missing. Please set environment variables.");
+      }
+
+      const response = await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: "contact@venrasun.com",
+      });
+
+      if (response.status === 200) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. We'll get back to you soon.",
+        });
+        
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly at contact@venrasun.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -71,7 +107,11 @@ const About = () => {
             <p className="text-muted-foreground mb-6">
               Learn more about our mission.
             </p>
-            <Button variant="default" className="w-fit">
+            <Button
+              variant="default"
+              className="w-fit"
+              onClick={() => navigate("/about")}
+            >
               Read More
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -105,7 +145,7 @@ const About = () => {
                   placeholder="Your Name *"
                   className={`w-full px-4 py-3 rounded-lg bg-card text-foreground placeholder:text-muted-foreground border-2 ${errors.name ? 'border-destructive' : 'border-transparent'} focus:ring-2 focus:ring-primary/50 outline-none`}
                 />
-                {errors.name && <p className="text-destructive text-sm mt-1">{errors.name}</p>}
+                {errors.name && <p className="text-white text-sm mt-1">{errors.name}</p>}
               </div>
               <div>
                 <input
@@ -116,7 +156,7 @@ const About = () => {
                   placeholder="Your Email *"
                   className={`w-full px-4 py-3 rounded-lg bg-card text-foreground placeholder:text-muted-foreground border-2 ${errors.email ? 'border-destructive' : 'border-transparent'} focus:ring-2 focus:ring-primary/50 outline-none`}
                 />
-                {errors.email && <p className="text-destructive text-sm mt-1">{errors.email}</p>}
+                {errors.email && <p className="text-white text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
                 <textarea
@@ -127,7 +167,7 @@ const About = () => {
                   rows={4}
                   className={`w-full px-4 py-3 rounded-lg bg-card text-foreground placeholder:text-muted-foreground border-2 ${errors.message ? 'border-destructive' : 'border-transparent'} focus:ring-2 focus:ring-primary/50 outline-none resize-none`}
                 />
-                {errors.message && <p className="text-destructive text-sm mt-1">{errors.message}</p>}
+                {errors.message && <p className="text-white text-sm mt-1">{errors.message}</p>}
               </div>
               <Button
                 type="submit"

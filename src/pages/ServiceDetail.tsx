@@ -18,7 +18,8 @@ const servicesData = {
       "Content Management Systems",
       "API Development & Integration",
       "Performance Optimization"
-    ]
+    ],
+    bannerGradient: "from-blue-600 via-blue-500 to-blue-400"
   },
   "mobile-application": {
     icon: Smartphone,
@@ -33,7 +34,8 @@ const servicesData = {
       "Offline Functionality",
       "App Store Deployment",
       "Maintenance & Support"
-    ]
+    ],
+    bannerGradient: "from-purple-600 via-purple-500 to-purple-400"
   },
   "data-analytics": {
     icon: BarChart3,
@@ -48,7 +50,8 @@ const servicesData = {
       "Custom Reporting Solutions",
       "Data Warehouse Design",
       "Real-time Analytics"
-    ]
+    ],
+    bannerGradient: "from-green-600 via-green-500 to-green-400"
   },
   "machine-learning": {
     icon: Brain,
@@ -63,7 +66,8 @@ const servicesData = {
       "Recommendation Systems",
       "Predictive Modeling",
       "AI Integration Services"
-    ]
+    ],
+    bannerGradient: "from-yellow-600 via-yellow-500 to-yellow-400"
   },
   "cloud-iot": {
     icon: Cloud,
@@ -78,7 +82,8 @@ const servicesData = {
       "Serverless Architecture",
       "Microservices Design",
       "DevOps Implementation"
-    ]
+    ],
+    bannerGradient: "from-cyan-600 via-cyan-500 to-cyan-400"
   },
   "cybersecurity": {
     icon: Shield,
@@ -93,7 +98,8 @@ const servicesData = {
       "Compliance Consulting",
       "Incident Response Planning",
       "Security Training & Awareness"
-    ]
+    ],
+    bannerGradient: "from-red-600 via-red-500 to-red-400"
   }
 };
 
@@ -125,68 +131,81 @@ const ServiceDetail = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-hero-gradient-start via-hero-gradient-mid to-hero-gradient-end">
-        <div className="container mx-auto px-4">
-          <Link to="/#services" className="inline-flex items-center text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors">
+      {/* Banner Section with Dynamic Gradient */}
+      <section className={`bg-gradient-to-br ${service.bannerGradient} pt-32 pb-16 relative overflow-hidden`}>
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-20 -mr-48 -mt-48" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-20 -ml-48 -mb-48" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <button 
+            onClick={() => window.history.back()}
+            className="inline-flex items-center text-white/80 hover:text-white mb-6 transition-colors cursor-pointer bg-none border-none font-medium"
+          >
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
-          </Link>
-          <div className="flex items-center gap-6 mb-6">
-            <div className="p-4 bg-white/20 rounded-xl">
-              <IconComponent className="w-12 h-12 text-primary-foreground" />
+            Go Back
+          </button>
+          <div className="flex items-center gap-6 mb-6 animate-fade-in">
+            <div className="p-6 bg-white/20 backdrop-blur-sm rounded-2xl border border-white/30">
+              <IconComponent className="w-16 h-16 text-white" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground">{service.title}</h1>
-              <p className="text-xl text-primary-foreground/80 mt-2">{service.subtitle}</p>
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-3">{service.title}</h1>
+              <p className="text-xl text-white/90">{service.subtitle}</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Content Section */}
-      <section className="py-16">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-16">
             {/* Description */}
             <div className="animate-fade-in">
-              <h2 className="text-2xl font-bold text-foreground mb-4">Overview</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                {service.description}
-              </p>
+              <div className="mb-8 pb-8 border-b-2 border-primary/20">
+                <h2 className="text-3xl font-bold text-foreground mb-4">Overview</h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
               
-              <h3 className="text-xl font-bold text-foreground mb-4">Technologies We Use</h3>
-              <div className="flex flex-wrap gap-3">
-                {service.technologies.map((tech) => (
-                  <span 
-                    key={tech}
-                    className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Technologies We Use</h3>
+                <div className="flex flex-wrap gap-3">
+                  {service.technologies.map((tech) => (
+                    <span 
+                      key={tech}
+                      className="px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium hover:bg-primary/20 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Features */}
             <div className="animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              <h2 className="text-2xl font-bold text-foreground mb-6">What We Offer</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-8">What We Offer</h2>
               <ul className="space-y-4">
-                {service.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground text-lg">{feature}</span>
+                {service.features.map((feature, index) => (
+                  <li key={feature} className="flex items-start gap-4 group" style={{ animationDelay: `${0.2 + index * 0.05}s` }}>
+                    <div className="flex-shrink-0 mt-1">
+                      <CheckCircle className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                    </div>
+                    <span className="text-muted-foreground text-lg leading-relaxed">{feature}</span>
                   </li>
                 ))}
               </ul>
               
-              <div className="mt-8">
-                <Link to="/#contact">
-                  <Button size="lg" className="w-full md:w-auto">
+              <div className="mt-12">
+                <a href="/#contact">
+                  <Button size="lg" className="w-full md:w-auto text-base px-8 py-6 hover:shadow-lg transition-shadow">
                     Get Started
-                    <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
+                    <ArrowLeft className="ml-2 h-5 w-5 rotate-180" />
                   </Button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

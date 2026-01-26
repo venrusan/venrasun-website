@@ -3,6 +3,20 @@ import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-image.png";
 
 const Hero = () => {
+  const handleGetStarted = () => {
+    const contactElement = document.getElementById("contact");
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleExploreServices = () => {
+    const servicesElement = document.getElementById("services");
+    if (servicesElement) {
+      servicesElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen bg-hero-gradient pt-24 overflow-hidden">
       <div className="container mx-auto px-4 py-16 md:py-24">
@@ -17,11 +31,11 @@ const Hero = () => {
               Innovative & Reliable IT Services for Your Digital Success.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="text-base px-8 py-6">
+              <Button size="lg" className="text-base px-8 py-6 cursor-pointer" onClick={handleGetStarted}>
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-base px-8 py-6">
+              <Button variant="outline" size="lg" className="text-base px-8 py-6 cursor-pointer" onClick={handleExploreServices}>
                 Explore Services
               </Button>
             </div>
