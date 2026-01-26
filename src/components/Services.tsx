@@ -34,6 +34,15 @@ const services = [
   },
 ];
 
+const serviceRoutes: Record<string, string> = {
+  "Web Application": "web-application",
+  "Mobile Application": "mobile-application",
+  "Data Analytics": "data-analytics",
+  "Machine Learning": "machine-learning",
+  "Cloud & IoT": "cloud-iot",
+  "Cybersecurity": "cybersecurity",
+};
+
 const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
@@ -51,7 +60,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
@@ -72,10 +81,12 @@ const Services = () => {
               </p>
 
               {/* Button */}
-              <Button variant="default" size="sm" className="group/btn">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-              </Button>
+              <a href={`/services/${serviceRoutes[service.title]}`}>
+                <Button variant="default" size="sm" className="group/btn">
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                </Button>
+              </a>
             </div>
           ))}
         </div>
