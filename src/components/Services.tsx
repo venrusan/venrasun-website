@@ -1,20 +1,35 @@
-import { Code, Cloud, Shield, ArrowRight } from "lucide-react";
+import { Code, Smartphone, BarChart3, Brain, Cloud, Shield, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
   {
     icon: Code,
-    title: "Software Development",
-    description: "Custom applications and web solutions",
+    title: "Web Application",
+    description: "React, Next.js & Spring Boot solutions",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Application",
+    description: "React Native cross-platform apps",
+  },
+  {
+    icon: BarChart3,
+    title: "Data Analytics",
+    description: "Transform data into insights",
+  },
+  {
+    icon: Brain,
+    title: "Machine Learning",
+    description: "AI-powered intelligent solutions",
   },
   {
     icon: Cloud,
-    title: "Cloud & IoT Solutions",
+    title: "Cloud & IoT",
     description: "Cloud platforms & IoT integration",
   },
   {
     icon: Shield,
-    title: "Cybersecurity & Consulting",
+    title: "Cybersecurity",
     description: "Protecting your business data",
   },
 ];
