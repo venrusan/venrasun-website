@@ -80,9 +80,9 @@ const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <Button className="hidden md:flex" onClick={() => handleNavClick("#contact")}>
+          {/* <Button className="hidden md:flex" onClick={() => handleNavClick("#contact")}>
             Get Started
-          </Button>
+          </Button> */}
 
           {/* Mobile Menu Button */}
           <button
@@ -111,9 +111,9 @@ const Header = () => {
                   {link.name}
                 </button>
               ))}
-              <Button className="w-full mt-2" onClick={() => handleNavClick("#contact")}>
+              {/* <Button className="w-full mt-2" onClick={() => handleNavClick("#contact")}>
                 Get Started
-              </Button>
+              </Button> */}
             </div>
           </nav>
         )}
