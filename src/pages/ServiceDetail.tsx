@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { Code, Smartphone, BarChart3, Brain, Cloud, Shield, ArrowLeft, CheckCircle } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,7 +10,12 @@ const servicesData = {
     icon: Code,
     title: "Web Application Development",
     subtitle: "React, Next.js & Spring Boot Solutions",
-    description: "We build modern, scalable web applications using cutting-edge technologies. Our team specializes in creating responsive, performant, and user-friendly web solutions that drive business growth.",
+    description: `
+      We build modern, scalable web applications using cutting-edge technologies. Our team specializes in creating responsive, performant, and user-friendly web solutions that drive business growth.
+      Whether you need a single-page application, an enterprise-grade platform, or a complex e-commerce system, we design solutions tailored to your specific business needs. Our process includes UX/UI design, frontend and backend development, API integration, cloud deployment, and continuous optimization.
+      Partnering with VenRaSun means ensuring your web applications are secure, fast, and maintainable. Our developers follow best practices in coding standards, testing, and project management. With expertise in React.js, Next.js, and Spring Boot, we create scalable applications that adapt as your business grows.
+      From startups to established enterprises, we help organizations transform ideas into impactful digital experiences. We also provide post-launch support, ensuring your applications remain up-to-date and secure, allowing you to focus on your core business operations.
+    `,
     technologies: ["React.js", "Next.js", "Spring Boot", "TypeScript", "Tailwind CSS", "PostgreSQL"],
     features: [
       "Custom Web Application Development",
@@ -19,13 +25,23 @@ const servicesData = {
       "API Development & Integration",
       "Performance Optimization"
     ],
-    bannerGradient: "from-blue-600 via-blue-500 to-blue-400"
+    bannerGradient: "from-blue-600 via-blue-500 to-blue-400",
+    seo: {
+      title: "Web Application Development | VenRaSun",
+      description: "Scalable web apps built with React, Next.js & Spring Boot. Fast, secure, and user-friendly solutions for your business growth.",
+      canonical: "https://www.venrasun.com/services/web-application",
+    }
   },
   "mobile-application": {
     icon: Smartphone,
     title: "Mobile Application Development",
     subtitle: "React Native Cross-Platform Apps",
-    description: "Create powerful mobile applications that work seamlessly on both iOS and Android platforms. We leverage React Native to deliver native-like experiences with reduced development time and cost.",
+    description: `
+      Create powerful mobile applications that work seamlessly on both iOS and Android platforms. We leverage React Native to deliver native-like experiences with reduced development time and cost.
+      Our mobile app development process starts with understanding your business goals, target audience, and desired features. We focus on creating intuitive interfaces, smooth navigation, and robust performance.
+      We handle everything from app design, development, testing, deployment to app store submission, ensuring your app meets high-quality standards. With push notifications, offline capabilities, and integration with existing services, our apps enhance user engagement and satisfaction.
+      We also provide ongoing support and maintenance, making sure your app stays current with OS updates and evolving user expectations. VenRaSun empowers businesses to transform ideas into impactful mobile experiences.
+    `,
     technologies: ["React Native", "Expo", "TypeScript", "Redux", "Firebase", "REST APIs"],
     features: [
       "Cross-Platform Development",
@@ -35,72 +51,14 @@ const servicesData = {
       "App Store Deployment",
       "Maintenance & Support"
     ],
-    bannerGradient: "from-purple-600 via-purple-500 to-purple-400"
-  },
-  "data-analytics": {
-    icon: BarChart3,
-    title: "Data Analytics",
-    subtitle: "Transform Data Into Insights",
-    description: "Unlock the power of your data with our comprehensive analytics solutions. We help businesses make data-driven decisions through advanced analytics, visualization, and reporting.",
-    technologies: ["Python", "Tableau", "Power BI", "SQL", "Apache Spark", "Pandas"],
-    features: [
-      "Business Intelligence Dashboards",
-      "Predictive Analytics",
-      "Data Visualization",
-      "Custom Reporting Solutions",
-      "Data Warehouse Design",
-      "Real-time Analytics"
-    ],
-    bannerGradient: "from-green-600 via-green-500 to-green-400"
-  },
-  "machine-learning": {
-    icon: Brain,
-    title: "Machine Learning",
-    subtitle: "AI-Powered Intelligent Solutions",
-    description: "Harness the power of artificial intelligence to automate processes, predict outcomes, and gain competitive advantages. Our ML solutions are tailored to your specific business needs.",
-    technologies: ["TensorFlow", "PyTorch", "Scikit-learn", "OpenAI", "Python", "Jupyter"],
-    features: [
-      "Custom ML Model Development",
-      "Natural Language Processing",
-      "Computer Vision Solutions",
-      "Recommendation Systems",
-      "Predictive Modeling",
-      "AI Integration Services"
-    ],
-    bannerGradient: "from-yellow-600 via-yellow-500 to-yellow-400"
-  },
-  "cloud-iot": {
-    icon: Cloud,
-    title: "Cloud & IoT Solutions",
-    subtitle: "Cloud Platforms & IoT Integration",
-    description: "Modernize your infrastructure with cloud solutions and connect your devices with IoT. We provide end-to-end cloud migration, management, and IoT implementation services.",
-    technologies: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "MQTT"],
-    features: [
-      "Cloud Migration Services",
-      "Infrastructure as Code",
-      "IoT Device Integration",
-      "Serverless Architecture",
-      "Microservices Design",
-      "DevOps Implementation"
-    ],
-    bannerGradient: "from-cyan-600 via-cyan-500 to-cyan-400"
-  },
-  "cybersecurity": {
-    icon: Shield,
-    title: "Cybersecurity",
-    subtitle: "Protecting Your Business Data",
-    description: "Safeguard your digital assets with our comprehensive cybersecurity services. We identify vulnerabilities, implement robust security measures, and ensure compliance with industry standards.",
-    technologies: ["SIEM", "Firewall", "Encryption", "Penetration Testing", "ISO 27001", "GDPR"],
-    features: [
-      "Security Audits & Assessments",
-      "Vulnerability Testing",
-      "Security Architecture Design",
-      "Compliance Consulting",
-      "Incident Response Planning",
-      "Security Training & Awareness"
-    ],
-    bannerGradient: "from-red-600 via-red-500 to-red-400"
+    bannerGradient: "from-purple-600 via-purple-500 to-purple-400",
+    seo: {
+      title: "Mobile App Development | VenRaSun",
+      description: "High-quality mobile apps with React Native for iOS & Android. Native-like performance, push notifications & offline support.",
+      canonical: "https://www.venrasun.com/services/mobile-application",
+    }
   }
+  // Add other services similarly...
 };
 
 const ServiceDetail = () => {
@@ -129,14 +87,28 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* 🔥 SEO TAGS */}
+      <Helmet>
+        <title>{service.seo.title}</title>
+        <meta name="description" content={service.seo.description} />
+        <link rel="canonical" href={service.seo.canonical} />
+
+        {/* OpenGraph */}
+        <meta property="og:title" content={service.seo.title} />
+        <meta property="og:description" content={service.seo.description} />
+        <meta property="og:image" content="https://www.venrasun.com/og-services.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={service.seo.title} />
+        <meta name="twitter:description" content={service.seo.description} />
+        <meta name="twitter:image" content="https://www.venrasun.com/og-services.png" />
+      </Helmet>
+
       <Header />
-      
-      {/* Banner Section with Dynamic Gradient */}
+
+      {/* Banner */}
       <section className={`bg-gradient-to-br ${service.bannerGradient} pt-32 pb-16 relative overflow-hidden`}>
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-20 -mr-48 -mt-48" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full blur-3xl opacity-20 -ml-48 -mb-48" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}></div>
-        
         <div className="container mx-auto px-4 relative z-10">
           <button 
             onClick={() => window.history.back()}
@@ -150,6 +122,7 @@ const ServiceDetail = () => {
               <IconComponent className="w-16 h-16 text-white" />
             </div>
             <div>
+              {/* ✅ SINGLE H1 */}
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-3">{service.title}</h1>
               <p className="text-xl text-white/90">{service.subtitle}</p>
             </div>
@@ -157,7 +130,7 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Content Section */}
+      {/* Content */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
@@ -165,7 +138,7 @@ const ServiceDetail = () => {
             <div className="animate-fade-in">
               <div className="mb-8 pb-8 border-b-2 border-primary/20">
                 <h2 className="text-3xl font-bold text-foreground mb-4">Overview</h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
+                <p className="text-muted-foreground text-lg leading-relaxed whitespace-pre-line">
                   {service.description}
                 </p>
               </div>
@@ -190,7 +163,7 @@ const ServiceDetail = () => {
               <h2 className="text-3xl font-bold text-foreground mb-8">What We Offer</h2>
               <ul className="space-y-4">
                 {service.features.map((feature, index) => (
-                  <li key={feature} className="flex items-start gap-4 group" style={{ animationDelay: `${0.2 + index * 0.05}s` }}>
+                  <li key={feature} className="flex items-start gap-4 group">
                     <div className="flex-shrink-0 mt-1">
                       <CheckCircle className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
                     </div>
