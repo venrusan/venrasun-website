@@ -84,12 +84,12 @@ const Header = () => {
           </nav>
 
           {/* CTA */}
-          <Button
+          {/* <Button
             className="hidden md:flex bg-primary text-white font-semibold shadow-lg transition-transform duration-300 hover:scale-105"
             onClick={() => handleNavClick("#contact")}
           >
             Get Started
-          </Button>
+          </Button> */}
 
           {/* MOBILE MENU ICON */}
           <button
@@ -117,12 +117,12 @@ const Header = () => {
                   {link.name}
                 </button>
               ))}
-              <Button
+              {/* <Button
                 className="mt-4 w-full bg-primary shadow-lg"
                 onClick={() => handleNavClick("#contact")}
               >
                 Get Started
-              </Button>
+              </Button> */}
             </div>
           </nav>
         </div>
