@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  vite-app:
+    image: venkatesh082001/venrasun-website:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
