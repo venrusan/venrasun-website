@@ -8,76 +8,76 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 30 30% 98%;
-    --foreground: 20 30% 15%;
+    --background: 0 0% 100%;
+    --foreground: 207 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 30% 15%;
+    --card-foreground: 207 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 30% 15%;
+    --popover-foreground: 207 30% 15%;
 
-    --primary: 24 75% 50%;
+    --primary: 207 90% 61%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 40% 95%;
-    --secondary-foreground: 20 30% 15%;
+    --secondary: 207 20% 96%;
+    --secondary-foreground: 207 30% 15%;
 
-    --muted: 30 20% 92%;
-    --muted-foreground: 20 15% 45%;
+    --muted: 207 20% 92%;
+    --muted-foreground: 207 15% 45%;
 
-    --accent: 24 85% 45%;
+    --accent: 207 90% 54%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 24 75% 50%;
+    --border: 207 20% 88%;
+    --input: 207 20% 88%;
+    --ring: 207 90% 61%;
 
     --radius: 0.75rem;
 
-    /* Custom VenRaSun tokens */
-    --hero-gradient-start: 30 60% 96%;
-    --hero-gradient-end: 24 50% 92%;
-    --service-card-bg: 30 40% 97%;
-    --contact-bg: 24 70% 48%;
+    /* Custom VenRaSun tokens - Blue Theme */
+    --hero-gradient-start: 207 30% 98%;
+    --hero-gradient-end: 207 40% 95%;
+    --service-card-bg: 207 20% 98%;
+    --contact-bg: 207 90% 56%;
   }
 
   .dark {
-    --background: 20 30% 8%;
-    --foreground: 30 20% 95%;
+    --background: 207 40% 8%;
+    --foreground: 207 20% 95%;
 
-    --card: 20 25% 12%;
-    --card-foreground: 30 20% 95%;
+    --card: 207 35% 12%;
+    --card-foreground: 207 20% 95%;
 
-    --popover: 20 25% 12%;
-    --popover-foreground: 30 20% 95%;
+    --popover: 207 35% 12%;
+    --popover-foreground: 207 20% 95%;
 
-    --primary: 24 75% 55%;
+    --primary: 207 90% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 20 20% 18%;
-    --secondary-foreground: 30 20% 95%;
+    --secondary: 207 20% 18%;
+    --secondary-foreground: 207 20% 95%;
 
-    --muted: 20 15% 20%;
-    --muted-foreground: 30 15% 60%;
+    --muted: 207 15% 20%;
+    --muted-foreground: 207 15% 60%;
 
-    --accent: 24 85% 50%;
+    --accent: 207 90% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 15% 20%;
-    --input: 20 15% 20%;
-    --ring: 24 75% 55%;
+    --border: 207 15% 20%;
+    --input: 207 15% 20%;
+    --ring: 207 90% 65%;
 
-    --hero-gradient-start: 20 25% 12%;
-    --hero-gradient-end: 20 20% 15%;
-    --service-card-bg: 20 20% 14%;
-    --contact-bg: 24 65% 40%;
+    --hero-gradient-start: 207 35% 12%;
+    --hero-gradient-end: 207 30% 15%;
+    --service-card-bg: 207 25% 14%;
+    --contact-bg: 207 85% 45%;
   }
 }
 

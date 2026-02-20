@@ -13,9 +13,8 @@ const Header = () => {
 
   const navLinks = [
     { name: "Home", href: "#" },
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
+    { name: "Company", href: "#Company" },
+    { name: "Solutions", href: "#Solutions" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -34,7 +33,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-lg border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-lg">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
 
@@ -51,13 +50,8 @@ const Header = () => {
 
             <div className="hidden sm:block">
 <div className="text-2xl font-extrabold tracking-wide text-primary">
-                VenRaSun
+                VENRASUN
               </div>
-
-              <p className="text-base font-bold tracking-wide animate-fade-in-up delay-150">
-                <span className="text-foreground">From Idea to </span>
-                <span className="text-primary">Impact</span>
-              </p>
             </div>
           </button>
 
