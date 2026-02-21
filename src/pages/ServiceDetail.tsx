@@ -484,9 +484,9 @@ const ServiceDetail = () => {
                 Get Started
                 <ArrowRight className="sd-arrow w-4 h-4" />
               </a>
-              <Link to="/services" className="sd-cta-ghost">
+              {/* <Link to="/services" className="sd-cta-ghost">
                 View All Services
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
