@@ -305,10 +305,18 @@ const Services = () => {
 
         .svc-card {
           position: relative;
+<<<<<<< Updated upstream
           border-radius: 16px;
           border: 1px solid hsl(var(--border) / 0.6);
           background: hsl(var(--card, var(--background)));
           padding: 1.75rem;
+=======
+          border-radius: 24px;
+          border: 1px solid hsl(var(--border) / 0.5);
+          background: hsl(var(--card, var(--background)) / 0.75);
+          backdrop-filter: blur(8px);
+          padding: 2rem 1.5rem;
+>>>>>>> Stashed changes
           height: 100%;
           display: flex;
           flex-direction: column;
@@ -316,6 +324,10 @@ const Services = () => {
           transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
                       box-shadow 0.3s ease,
                       border-color 0.3s ease;
+<<<<<<< Updated upstream
+=======
+          box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.05);
+>>>>>>> Stashed changes
         }
 
         /* Shimmer sweep */
@@ -324,7 +336,11 @@ const Services = () => {
           position: absolute;
           top: -60%; left: -80%;
           width: 50%; height: 220%;
+<<<<<<< Updated upstream
           background: linear-gradient(120deg, transparent, hsl(var(--primary) / 0.07) 50%, transparent);
+=======
+          background: linear-gradient(120deg, transparent, hsl(var(--primary) / 0.06) 50%, transparent);
+>>>>>>> Stashed changes
           transform: skewX(-15deg);
           transition: left 0.55s ease;
           pointer-events: none;
@@ -334,6 +350,7 @@ const Services = () => {
 
         .svc-card:hover {
           transform: translateY(-6px) scale(1.015);
+<<<<<<< Updated upstream
           border-color: hsl(var(--primary) / 0.45);
           box-shadow: 0 18px 40px hsl(var(--primary) / 0.1), 0 4px 10px rgba(0,0,0,0.08);
         }
@@ -342,17 +359,40 @@ const Services = () => {
           width: 52px; height: 52px;
           border-radius: 13px;
           background: hsl(var(--primary) / 0.1);
+=======
+          border-color: hsl(var(--primary) / 0.35);
+          box-shadow: 0 25px 40px -12px hsl(var(--primary) / 0.18);
+        }
+
+        /* icon + category + title on the same row */
+        .svc-card-header {
+          display: flex;
+          align-items: center;
+          gap: 0.9rem;
+          margin-bottom: 1rem;
+        }
+
+        .svc-icon-box {
+          width: 44px; height: 44px;
+          border-radius: 12px;
+          background: hsl(var(--primary) / 0.12);
+>>>>>>> Stashed changes
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
           transition: background 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         .svc-card:hover .svc-icon-box {
           background: hsl(var(--primary) / 0.2);
+<<<<<<< Updated upstream
           transform: rotate(-6deg) scale(1.1);
+=======
+          transform: rotate(-4deg) scale(1.05);
+>>>>>>> Stashed changes
         }
 
         .svc-category-tag {
           display: inline-block;
+<<<<<<< Updated upstream
           font-size: 0.68rem;
           font-weight: 600;
           letter-spacing: 0.08em;
@@ -366,6 +406,37 @@ const Services = () => {
 
         .svc-arrow {
           opacity: 0.35;
+=======
+          font-size: 0.7rem;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          padding: 0.25rem 0.9rem;
+          border-radius: 99px;
+          background: hsl(var(--primary) / 0.1);
+          color: hsl(var(--primary));
+          white-space: nowrap;
+        }
+
+        .svc-card-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: hsl(var(--foreground));
+          margin-bottom: 0.65rem;
+          line-height: 1.3;
+        }
+
+        .svc-card-description {
+          color: hsl(var(--muted-foreground));
+          font-size: 0.9rem;
+          line-height: 1.5;
+          margin-bottom: 1.5rem;
+          flex: 1;
+        }
+
+        .svc-arrow {
+          opacity: 0.4;
+>>>>>>> Stashed changes
           color: hsl(var(--muted-foreground));
           transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease;
         }
@@ -373,11 +444,28 @@ const Services = () => {
 
         .svc-link-text {
           font-size: 0.8rem;
+<<<<<<< Updated upstream
+=======
+          font-weight: 500;
+>>>>>>> Stashed changes
           color: hsl(var(--muted-foreground));
           transition: color 0.3s ease;
         }
         .svc-card:hover .svc-link-text { color: hsl(var(--primary)); }
 
+<<<<<<< Updated upstream
+=======
+        /* card footer */
+        .svc-card-footer {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-top: auto;
+          border-top: 1px solid hsl(var(--border) / 0.3);
+          padding-top: 1rem;
+        }
+
+>>>>>>> Stashed changes
         /* ── Dot indicators ── */
         .svc-dots { display: flex; gap: 6px; justify-content: center; }
         .svc-dot {
@@ -440,11 +528,19 @@ const Services = () => {
         }
       `}</style>
 
+<<<<<<< Updated upstream
       <section className="svc-section py-20 md:py-28">
         <div className="svc-inner container mx-auto px-4 md:px-6">
 
           {/* ── Header ── */}
           <div className="text-center mb-10 svc-header">
+=======
+      <section className="svc-section py-16 md:py-28">
+        <div className="svc-inner container mx-auto px-4 md:px-6">
+
+          {/* ── Header ── */}
+          <div className="text-center mb-12 svc-header">
+>>>>>>> Stashed changes
             <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-3">
               What We Offer
             </p>
@@ -456,6 +552,7 @@ const Services = () => {
             </p>
           </div>
 
+<<<<<<< Updated upstream
           {/* ── Stat Bar ── */}
           {/* <div className="max-w-xl mx-auto mb-10" ref={statsRef}>
             <div className="svc-stats">
@@ -467,6 +564,12 @@ const Services = () => {
 
           {/* ── Filter Tabs ── */}
           <div className="svc-filters mb-10">
+=======
+          {/* ── Stat Bar (optional, keep commented) ── */}
+
+          {/* ── Filter Tabs ── */}
+          <div className="svc-filters mb-12">
+>>>>>>> Stashed changes
             {categories.map(cat => (
               <button
                 key={cat}
@@ -479,7 +582,11 @@ const Services = () => {
           </div>
 
           {/* ── Cards Grid ── */}
+<<<<<<< Updated upstream
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+=======
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+>>>>>>> Stashed changes
             {filtered.map((service, index) => (
               <div
                 key={service.title}
@@ -492,6 +599,7 @@ const Services = () => {
                   onMouseEnter={() => setActiveIndex(index)}
                 >
                   <div className="svc-card">
+<<<<<<< Updated upstream
                     <div className="svc-icon-box mb-4">
                       <service.icon className="w-[22px] h-[22px] text-primary" />
                     </div>
@@ -505,6 +613,18 @@ const Services = () => {
                       </p>
                     </div>
                     <div className="flex items-center gap-2 mt-5 pt-4 border-t border-border/40">
+=======
+                    {/* Icon + Category + Title in one row */}
+                    <div className="svc-card-header">
+                      <div className="svc-icon-box">
+                        <service.icon className="w-[20px] h-[20px] text-primary" />
+                      </div>
+                      <span className="svc-category-tag">{service.category}</span>
+                    </div>
+                    <h3 className="svc-card-title">{service.title}</h3>
+                    <p className="svc-card-description">{service.description}</p>
+                    <div className="svc-card-footer">
+>>>>>>> Stashed changes
                       <span className="svc-link-text">Learn more</span>
                       <ArrowRight className="svc-arrow w-[15px] h-[15px]" />
                     </div>
@@ -515,12 +635,17 @@ const Services = () => {
           </div>
 
           {/* ── Dot Indicators ── */}
+<<<<<<< Updated upstream
           <div className="svc-dots mb-10">
+=======
+          <div className="svc-dots mb-12">
+>>>>>>> Stashed changes
             {filtered.map((_, i) => (
               <div key={i} className={`svc-dot ${activeIndex === i ? "active" : ""}`} />
             ))}
           </div>
 
+<<<<<<< Updated upstream
           {/* ── CTA Row ── */}
           {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href="/services" className="svc-cta-btn">
@@ -531,6 +656,9 @@ const Services = () => {
               Talk to us
             </a>
           </div> */}
+=======
+          {/* ── CTA Row (optional) ── */}
+>>>>>>> Stashed changes
 
         </div>
       </section>

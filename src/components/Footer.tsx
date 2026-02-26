@@ -1,8 +1,8 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Youtube, Mail } from "lucide-react";
-import logo from "@/assets/venrasun-logo.jpeg";
+import { Link } from "react-router-dom";
+import { Mail, Linkedin, Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
+<<<<<<< Updated upstream
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
@@ -39,73 +39,80 @@ const Footer = () => {
     }
   };
 
+=======
+>>>>>>> Stashed changes
   return (
-    <footer className="bg-card border-t border-border py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Logo & Tagline */}
-          <div className="md:col-span-1">
-            <img src={logo} alt="VenRaSun" className="w-24 h-24  mb-4" />
-            <p className="text-sm text-primary font-medium">
-              FROM IDEA TO IMPACT
+    <footer className="bg-foreground text-background/80 pt-16 pb-8">
+      <div className="container-narrow px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          {/* Brand */}
+          <div>
+            <Link to="/" className="font-display font-bold text-xl text-background mb-4 block">
+              VENRA<span className="text-primary">SUN</span>
+            </Link>
+            <p className="text-sm text-background/60 mb-6 leading-relaxed">
+              Connect with us and discover how technology can transform your business.
             </p>
-            <p className="text-sm text-muted-foreground mt-4">
-              © 2026 VenRaSun. All rights reserved.
-            </p>
+            <div className="flex items-center gap-3">
+              {[
+                { icon: Twitter, label: "Twitter", href: "#" },
+                { icon: Instagram, label: "Instagram", href: "#" },
+                { icon: Mail, label: "Email", href: "mailto:contact@venrasun.com" },
+                { icon: Linkedin, label: "LinkedIn", href: "#" },
+              ].map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+                >
+                  <s.icon size={16} />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* About Us Links */}
+          {/* Company */}
           <div>
-            <h4 className="font-bold text-foreground mb-4">Quick Link</h4>
-            <ul className="space-y-2">
-              {footerLinks.aboutUs.map((link) => (
-                <li key={link.name}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-muted-foreground hover:text-primary transition-colors bg-none border-none cursor-pointer p-0"
-                  >
-                    {link.name}
-                  </button>
+            <h4 className="font-display font-semibold text-background text-sm uppercase tracking-wider mb-4">Company</h4>
+            <ul className="space-y-2.5">
+              {["About Us", "Our Team", "Blog"].map((item) => (
+                <li key={item}>
+                  <a href="#" className="text-sm text-background/60 hover:text-primary transition-colors">{item}</a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services Links */}
+          {/* Services */}
           <div>
-            <h4 className="font-bold text-foreground mb-4">Services</h4>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-
-<li key={link.name}>
-                <a href={`/services/${link.href}`}>
-                <button className="text-muted-foreground hover:text-primary transition-colors bg-none border-none cursor-pointer p-0">
-                  {link.name}
-                  </button>
-              </a>
-              </li>
+            <h4 className="font-display font-semibold text-background text-sm uppercase tracking-wider mb-4">Services</h4>
+            <ul className="space-y-2.5">
+              {["Web Development", "Mobile Apps", "Data Analytics", "Machine Learning", "Cloud & IoT"].map((item) => (
+                <li key={item}>
+                  <a href="#" className="text-sm text-background/60 hover:text-primary transition-colors">{item}</a>
+                </li>
               ))}
             </ul>
           </div>
-
-          {/* Contact & Social */}
+          
+          {/* Legal */}
           <div>
-            <h4 className="font-bold text-foreground mb-4">Contact</h4>
-            <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target={social.target}
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <social.icon size={18} />
-                </a>
+            <h4 className="font-display font-semibold text-background text-sm uppercase tracking-wider mb-4">Legal</h4>
+            <ul className="space-y-2.5">
+              {["Privacy Policy", "Terms of Conditions"].map((item) => (
+                <li key={item}>
+                  <a href="#" className="text-sm text-background/60 hover:text-primary transition-colors">{item}</a>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
+        </div>
+
+        <div className="border-t border-background/10 pt-8 text-center">
+          <p className="text-sm text-background/40">
+            © {new Date().getFullYear()} VENRASUN. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

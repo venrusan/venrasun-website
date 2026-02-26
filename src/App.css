@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+<<<<<<< Updated upstream
 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+>>>>>>> Stashed changes
 
 .logo {
   height: 6em;
@@ -38,8 +42,57 @@
 }
 
 #home-intro{
+<<<<<<< Updated upstream
   font-family: "Public Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+=======
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}/* 2D Animated Layer Effect - Your Success */
+.animated-2d-text-1 {
+  position: relative;
+  font-weight: 800;
+  background: linear-gradient(90deg, #38bdf8, #3b82f6, #6366f1);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: moveGradient1 6s linear infinite;
+  text-shadow:
+    3px 3px 0 #0ea5e9,
+    6px 6px 0 #2563eb,
+    9px 9px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* 2D Animated Layer Effect - Our Vision */
+.animated-2d-text-2 {
+  position: relative;
+  font-weight: 800;
+  background: linear-gradient(90deg, #a855f7, #ec4899, #f43f5e);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: moveGradient2 6s linear infinite;
+  text-shadow:
+    3px 3px 0 #c026d3,
+    6px 6px 0 #db2777,
+    9px 9px 20px rgba(236, 72, 153, 0.3);
+}
+
+/* Gradient Movement */
+@keyframes moveGradient1 {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes moveGradient2 {
+  0% { background-position: 200% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-2d-text-1,
+.animated-2d-text-2 {
+  background-size: 200% 200%;
+>>>>>>> Stashed changes
 }
